@@ -2,7 +2,7 @@
 	<div style="height: 100%;display: flex;flex-direction: column;">
 		<div class="logForm">
 <<<<<<< HEAD
-			<img src="../assets/banner.png" style="height: 80px;" />
+			永远永远<img src="../assets/banner.png" style="height: 80px;" />
 			<a-b <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 24}" @submit="handleSubmit" style="margin-top: 50px;">
 				<a-form-item>
 					<a-input size="large" placeholder="请输入账号" v-decorator="[
