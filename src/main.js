@@ -6,11 +6,7 @@ import router from './router'
 import store from './store'
 import Antd from 'ant-design-vue'
 
-<<<<<<< HEAD
 import 'ant-design-vue/dist/antd.css'
-=======
-import '~ant-design-vue/dist/antd.less'
->>>>>>> 8a25a2f... 基本架构
 
 Vue.config.productionTip = false
 

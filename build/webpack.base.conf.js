@@ -4,19 +4,11 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-<<<<<<< HEAD
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
-=======
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
->>>>>>> 8a25a2f... 基本架构
 }
 
-
-
 module.exports = {
-<<<<<<< HEAD
 	context: path.resolve(__dirname, '../'),
 	entry: {
 		app: './src/main.js'
@@ -93,8 +85,7 @@ module.exports = {
 		net: 'empty',
 		tls: 'empty',
 		child_process: 'empty'
-	}
-=======
+	},
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
@@ -163,5 +154,4 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
->>>>>>> 8a25a2f... 基本架构
 }

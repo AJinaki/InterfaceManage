@@ -2,7 +2,11 @@
 	<div style="height: 100%;display: flex;flex-direction: column;">
 		<div class="logForm">
 <<<<<<< HEAD
+<<<<<<< HEAD
 			永远永远<img src="../assets/banner.png" style="height: 80px;" />
+=======
+			<img src="../assets/banner.png" style="height: 80px;" />
+>>>>>>> 435346d0be7a43688fe2a58f2469079897e7b260
 			<a-b <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 24}" @submit="handleSubmit" style="margin-top: 50px;">
 				<a-form-item>
 					<a-input size="large" placeholder="请输入账号" v-decorator="[
@@ -26,13 +30,11 @@
 					</a-button>
 				</a-form-item>
 				</a-form>
-=======
-			<img src="../assets/banner.png" style="height: 90px;" />
+			<!-- <img src="../assets/banner.png" style="height: 90px;" />
 			<img src="../assets/hello.png" style="height: 60px;margin-bottom: 15px;" />
 			<a-button type="primary" @click="LogIn()" size="large" block>
 				进入
-			</a-button>
->>>>>>> 8a25a2f... 基本架构
+			</a-button> -->
 		</div>
 		<a class="advlink" href="/#/AdvLogin">管理员登录</a>
 	</div>
@@ -49,7 +51,6 @@
 			};
 		},
 		methods: {
-<<<<<<< HEAD
 			handleSubmit(e) {
 				e.preventDefault();
 				this.form.validateFields((err, values) => {
@@ -97,12 +98,10 @@
 				this.$store.commit("setMode", "C");
 				this.$router.push('Home');
 			}, */
-=======
 			LogIn(e) {
 				this.$store.commit("setMode", "C");
 				this.$router.push('Home');
 			},
->>>>>>> 8a25a2f... 基本架构
 		}
 	}
 </script>
@@ -112,11 +111,6 @@
 		position: relative;
 		margin: 0 auto;
 		margin-top: 170px;
-<<<<<<< HEAD
-		max-width: 450px;
-=======
-		max-width: 400px;
->>>>>>> 8a25a2f... 基本架构
 		padding-top: 35px;
 		padding-left: 50px;
 		padding-right: 50px;

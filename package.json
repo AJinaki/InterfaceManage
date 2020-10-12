@@ -15,11 +15,7 @@
     "ant-design-vue": "^1.6.5",
     "axios": "^0.20.0",
     "vue": "^2.6.12",
-<<<<<<< HEAD
-    "vue-router": "^3.4.6",
-=======
     "vue-router": "^3.0.1",
->>>>>>> 8a25a2f... 基本架构
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -44,11 +40,8 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
-<<<<<<< HEAD
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
-=======
->>>>>>> 8a25a2f... 基本架构
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
@@ -65,10 +58,7 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
-<<<<<<< HEAD
-=======
     "webpack": "^3.6.0",
->>>>>>> 8a25a2f... 基本架构
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
