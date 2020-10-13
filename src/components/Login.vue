@@ -1,7 +1,12 @@
 <template>
 	<div style="height: 100%;display: flex;flex-direction: column;">
 		<div class="logForm">
-		<img src="../assets/banner.png" style="height: 80px;" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+			永远永远<img src="../assets/banner.png" style="height: 80px;" />
+=======
+			<img src="../assets/banner.png" style="height: 80px;" />
+>>>>>>> 435346d0be7a43688fe2a58f2469079897e7b260
 			<a-b <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 24}" @submit="handleSubmit" style="margin-top: 50px;">
 				<a-form-item>
 					<a-input size="large" placeholder="请输入账号" v-decorator="[
