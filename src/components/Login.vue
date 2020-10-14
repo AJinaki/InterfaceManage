@@ -1,35 +1,40 @@
 <template>
-	<div style="height: 100%;display: flex;flex-direction: column;">
-		<div class="logForm">
-			<img src="../assets/banner.png" style="height: 80px;" />
-			<a-b <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 24}" @submit="handleSubmit" style="margin-top: 50px;">
-				<a-form-item>
-					<a-input size="large" placeholder="请输入账号" v-decorator="[
-								  'account',
-								  { rules: [{ required: true, message: '账号不能为空！' }] },
-								]">
-						<a-icon slot="prefix" type="user" />
-					</a-input>
-				</a-form-item>
-				<a-form-item>
-					<a-input-password size="large" placeholder="请输入密码" v-decorator="[
-								  'password',
-								  { rules: [{ required: true, message: '密码不能为空！' }] },
-								]">
-						<a-icon slot="prefix" type="lock" />
-					</a-input-password>
-				</a-form-item>
-				<a-form-item :wrapper-col="{ span: 12, offset: 5 }" style="margin-bottom: 0;">
-					<a-button type="primary" html-type="submit" size="large" block :loading="isTBLoading">
-						登录
-					</a-button>
-				</a-form-item>
+	<div style="height: 100%;display: flex;flex-direction: column;background-color: #F3F7FA;">
+		<div style="margin: 0 auto;margin-top: 120px;">
+			<div class="loghead">
+				<!-- <img src="../assets/banner.png" style="height: 80px;width: 380px;margin-top: 20px;" /> -->
+				<div style="font-size: 40px;color: white;">接口管理系统</div>
+			</div>
+			<div class="logForm">
+				<a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 24}" @submit="handleSubmit" style="margin-top: 35px;">
+					<a-form-item>
+						<a-input size="large" placeholder="请输入账号" v-decorator="[
+									  'account',
+									  { rules: [{ required: true, message: '账号不能为空！' }] },
+									]">
+							<a-icon slot="prefix" type="user" />
+						</a-input>
+					</a-form-item>
+					<a-form-item>
+						<a-input-password size="large" placeholder="请输入密码" v-decorator="[
+									  'password',
+									  { rules: [{ required: true, message: '密码不能为空！' }] },
+									]">
+							<a-icon slot="prefix" type="lock" />
+						</a-input-password>
+					</a-form-item>
+					<a-form-item :wrapper-col="{ span: 12, offset: 5 }" style="margin-bottom: 0;">
+						<a-button type="primary" html-type="submit" size="large" block :loading="isTBLoading">
+							登录
+						</a-button>
+					</a-form-item>
 				</a-form>
-			<!-- <img src="../assets/banner.png" style="height: 90px;" />
-			<img src="../assets/hello.png" style="height: 60px;margin-bottom: 15px;" />
-			<a-button type="primary" @click="LogIn()" size="large" block>
-				进入
-			</a-button> -->
+				<!-- <img src="../assets/banner.png" style="height: 90px;" />
+				<img src="../assets/hello.png" style="height: 60px;margin-bottom: 15px;" />
+				<a-button type="primary" @click="LogIn()" size="large" block>
+					进入
+				</a-button> -->
+			</div>
 		</div>
 		<a class="advlink" href="/#/AdvLogin">管理员登录</a>
 	</div>
@@ -89,29 +94,35 @@
 					}
 				});
 			},
-			/* LogIn(e) {
-				this.$store.commit("setMode", "C");
-				this.$router.push('Home');
-			}, */
 			LogIn(e) {
 				this.$store.commit("setMode", "C");
 				this.$router.push('Home');
-			},
+			}
 		}
 	}
 </script>
 
 <style scoped>
+	
 	.logForm {
-		position: relative;
-		margin: 0 auto;
-		margin-top: 170px;
+		background-color: white;
 		padding-top: 35px;
 		padding-left: 50px;
 		padding-right: 50px;
 		padding-bottom: 50px;
-		border-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2)
+	}
+
+	.loghead {
+		background-color: #EE4B56;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		padding-left: 70px;
+		padding-right: 70px;
 	}
 
 	.advlink {
@@ -122,6 +133,6 @@
 	}
 
 	.advlink:hover {
-		color: #1890ff;
+		color: #EE4B56;
 	}
 </style>
