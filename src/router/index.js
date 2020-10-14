@@ -9,6 +9,7 @@ import AdvanceSearch from '@/components/AdvanceSearch.vue'
 import AddAddress from "@/components/AddAddress.vue"
 import ManageAdmin from "@/components/ManageAdmin.vue"
 import AddAdmin from '@/components/AddAdmin.vue'
+import Visualize from '@/components/Visualize.vue'
 
 Vue.use(Router)
 
@@ -33,7 +34,13 @@ export default new Router({
 			name: 'Home',
 			component: Home,
 			redirect: '/QuickSearch',
-			children: [{
+			children: [
+				{
+					path: '/Visualize',
+					name: 'Visualize',
+					compoment: Visualize
+				},
+				{
 					path: '/QuickSearch',
 					name: 'QuickSearch',
 					component: QuickSearch

@@ -14,6 +14,11 @@
 							<a-icon type="home" class="navbar-icon" />首页
 						</div>
 					</router-link>
+					<router-link :to="navPath[5].path" tag="div">
+						<div :class="navIndex === 6 ? 'navbar-item-active' : ''" class="navbar-item">
+							<a-icon type="home" class="navbar-icon" />链路可视化
+						</div>
+					</router-link>
 					<router-link :to="navPath[1].path" tag="div">
 						<div :class="navIndex === 2 ? 'navbar-item-active' : ''" class="navbar-item">
 							<a-icon type="file-search" class="navbar-icon" />高级查询
@@ -96,6 +101,9 @@
 					{
 						path: 'addAdmin'
 					},
+					{
+						path: 'Visualize'
+					}
 				],
 				navIndex: 1,
 				isChpvisible: false,
