@@ -14,7 +14,8 @@ import Visualize from '@/components/Visualize.vue'
 Vue.use(Router)
 
 export default new Router({
-	routes: [{
+	routes: [
+		{
 			path: '',
 			name: 'Login',
 			component: LoginX
@@ -38,7 +39,7 @@ export default new Router({
 				{
 					path: '/Visualize',
 					name: 'Visualize',
-					compoment: Visualize
+					component: Visualize
 				},
 				{
 					path: '/QuickSearch',
