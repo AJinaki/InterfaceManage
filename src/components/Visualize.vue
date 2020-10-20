@@ -1,6 +1,6 @@
 <template>
   <div class="visdiv">
-    <div class="vishead">
+    <div class="vishead-full">
       <b style="font-size: 35px;">可视化链路全局图</b>
       <div class="vishead-btn" @click="refreshLink" style="margin-left: 120px;">
         <a-icon type="redo" style="font-size: 26px;" /><b>刷新</b>
@@ -153,7 +153,7 @@
       },
       getLinkNodes() {
         request({
-          url: '/getLinkNodes/A',
+          url: '/getLinkNodes/B',
           method: 'get'
         }).then(res => {
           this.LinkNodesData = res;
@@ -166,7 +166,7 @@
       },
       getLineMaps() {
         request({
-          url: '/getLineMaps/A',
+          url: '/getLineMaps/B',
           method: 'get'
         }).then(res => {
           this.LineMapsData = res;
@@ -234,18 +234,6 @@
     align-items: center;
     background-color: rgb(252 57 57 / 0.1);
     display: flex;
-  }
-
-  .vishead {
-    background-color: white;
-    height: 80px;
-    margin: 30px;
-    padding: 10px;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 
   .vishead-full {
