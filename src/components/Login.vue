@@ -44,7 +44,7 @@
 	export default {
 		data() {
 			return {
-				loading: false,
+				isTBLoading: false,
 				form: this.$form.createForm(this, {
 					name: 'loginform'
 				}),
@@ -95,7 +95,7 @@
 				});
 			},
 			LogIn(e) {
-				this.$store.commit("setMode", "C");
+				this.$store.commit("setMode", "A");
 				this.$router.push('Home');
 			}
 		}
@@ -103,7 +103,7 @@
 </script>
 
 <style scoped>
-	
+
 	.logForm {
 		background-color: white;
 		padding-top: 35px;
