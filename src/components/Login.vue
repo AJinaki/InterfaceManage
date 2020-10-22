@@ -36,7 +36,8 @@
 				</a-button> -->
 			</div>
 		</div>
-		<a class="advlink" href="/#/AdvLogin">管理员登录</a>
+		<!-- <a class="advlink" href="/#/AdvLogin">管理员登录</a> -->
+		<a class="advlink" @click="LogIn()">管理员登录</a>
 	</div>
 </template>
 
@@ -44,7 +45,7 @@
 	export default {
 		data() {
 			return {
-				loading: false,
+				isTBLoading: false,
 				form: this.$form.createForm(this, {
 					name: 'loginform'
 				}),
@@ -56,18 +57,16 @@
 				this.form.validateFields((err, values) => {
 					if (!err) {
 						console.log('Received values of form: ', values);
-						//this.isTBLoading = true;
-						this.$store.commit("setMode", "A");
-						this.$router.push('Home');
-						/* request({
-							url: '/AddressBackEnd/checkLogin',
+						this.isTBLoading = true;
+						request({
+							url: '/user/login',
 							method: 'post',
-							params: {
-								erp: values.account,
+							/* data: {
+								account: values.account,
 								password: values.password
-							}
+							} */
 						}).then(res => {
-							console.log(res.result)
+							console.log(res)
 							if (res.result != null && res.result != "") {
 								if (res.result == "service error") {
 									this.$message.error('Service出现了某些错误！请联系管理员');
@@ -90,12 +89,12 @@
 							this.isTBLoading = false;
 							this.$message.error('出现了某些错误！请联系管理员');
 							console.log(error.response);
-						}) */
+						})
 					}
 				});
 			},
 			LogIn(e) {
-				this.$store.commit("setMode", "C");
+				this.$store.commit("setMode", "A");
 				this.$router.push('Home');
 			}
 		}
