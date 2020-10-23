@@ -427,7 +427,7 @@
 				this.advancemode = true;
 			}
 			request({
-				url: '/AddressBackEnd/getAllHJAndDEPAndTeam',
+				url: '/3/AddressBackEnd/getAllHJAndDEPAndTeam',
 				method: 'post',
 				/* data: {
 					name

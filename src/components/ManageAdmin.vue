@@ -14,22 +14,21 @@
 			</a-table>
 		</div>
 		<a-modal :visible="isUpdvisible" :confirm-loading="confirmLoading" @ok="handleOk" @cancel="handleCancel" style="adrDialog"
-			:maskClosable="false" cancelText="再想想" okText="更新" okType="danger">
+		 :maskClosable="false" cancelText="再想想" okText="更新" okType="danger">
 			<div class="updateTitle">更新</div>
 			<a-divider />
 			<div class="updateForm">
-				<a-form :form="form">
-					<a-form-item v-bind="formItemLayout" label="ERP" has-feedback>
-						<a-input v-decorator="[ 'erp', 
+				<a-form-item v-bind="formItemLayout" label="ERP" has-feedback>
+					<a-input v-decorator="[ 'erp', 
 							{ rules: [ { required: true, message: 'ERP号不能为空！', }, { len: 8, message: 'ERP号长度应为8位！' } ], },
 						    ]" />
-					</a-form-item>
-					<a-form-item v-bind="formItemLayout" label="密码" has-feedback>
-						<a-input v-decorator="[ 'password', { rules: [ { required: true, message: '密码不能为空!', }, ], }, ]" />
-					</a-form-item>
-					<a-form-item v-bind="formItemLayout" label="备注">
-						<a-input v-model="remarks" />
-					</a-form-item>
+				</a-form-item>
+				<a-form-item v-bind="formItemLayout" label="密码" has-feedback>
+					<a-input v-decorator="[ 'password', { rules: [ { required: true, message: '密码不能为空!', }, ], }, ]" />
+				</a-form-item>
+				<a-form-item v-bind="formItemLayout" label="备注">
+					<a-input v-model="remarks" />
+				</a-form-item>
 				</a-form>
 			</div>
 		</a-modal>
@@ -128,7 +127,7 @@
 			editItem(index) {
 				this.isUpdvisible = true;
 				this.id = this.tableData[index].iD;
-				this.$nextTick(function(){//在下次 DOM 更新循环结束之后执行延迟回调
+				this.$nextTick(function() { //在下次 DOM 更新循环结束之后执行延迟回调
 					this.form.setFieldsValue({
 						erp: this.tableData[index].eRP,
 						password: this.tableData[index].pWD

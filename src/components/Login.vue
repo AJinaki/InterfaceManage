@@ -42,6 +42,7 @@
 </template>
 
 <script>
+	import request from '../utils/request.js'
 	export default {
 		data() {
 			return {
@@ -59,14 +60,14 @@
 						console.log('Received values of form: ', values);
 						this.isTBLoading = true;
 						request({
-							url: '/user/login',
+							url: '/3/user/login',
 							method: 'post',
-							/* data: {
+							data: {
 								account: values.account,
 								password: values.password
-							} */
+							}
 						}).then(res => {
-							console.log(res)
+							console.log("返回值"+JSON.stringify(res))
 							if (res.result != null && res.result != "") {
 								if (res.result == "service error") {
 									this.$message.error('Service出现了某些错误！请联系管理员');

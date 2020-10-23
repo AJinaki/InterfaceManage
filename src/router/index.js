@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LoginX from '@/components/Login.vue'
 import AdvLogin from '@/components/AdvLogin.vue'
 import Success from '@/components/Success.vue'
 import Home from '@/components/Home.vue'
-import QuickSearch from '@/components/QuickSearch.vue'
+import GeneralView from '@/components/QuickSearch.vue'
 import AdvanceSearch from '@/components/AdvanceSearch.vue'
 import AddAddress from "@/components/AddAddress.vue"
 import ManageAdmin from "@/components/ManageAdmin.vue"
-import AddAdmin from '@/components/AddAdmin.vue'
+/* 五组功能路由 */
 import Visualize from '@/components/Visualize.vue'
+
+/* 三组功能路由 */
+import LoginX from '@/components/Login.vue'
+import AddUser from '@/components/userManage/AddUser.vue'
+import ManageUser from '@/components/userManage/ManageUser.vue'
+import AMRole from '@/components/userManage/AMRole.vue'
 
 Vue.use(Router)
 
@@ -34,18 +39,19 @@ export default new Router({
 			path: '/Home',
 			name: 'Home',
 			component: Home,
-			redirect: '/QuickSearch',
+			redirect: '/GeneralView',
 			children: [
+				{
+					path: '/GeneralView',
+					name: 'GeneralView',
+					component: GeneralView
+				},
 				{
 					path: '/Visualize',
 					name: 'Visualize',
 					component: Visualize
 				},
-				{
-					path: '/QuickSearch',
-					name: 'QuickSearch',
-					component: QuickSearch
-				},
+				
 				{
 					path: '/AdvanceSearch',
 					name: 'AdvanceSearch',
@@ -68,9 +74,25 @@ export default new Router({
 					}
 				},
 				{
-					path: '/AddAdmin',
-					name: 'AddAdmin',
-					component: AddAdmin,
+					path: '/AddUser',
+					name: 'AddUser',
+					component: AddUser,
+					meta: {
+						requiresAuth: true
+					}
+				},
+				{
+					path: '/ManageUser',
+					name: 'ManageUser',
+					component: ManageUser,
+					meta: {
+						requiresAuth: true
+					}
+				},
+				{
+					path: '/AMRole',
+					name: 'AMRole',
+					component: AMRole,
 					meta: {
 						requiresAuth: true
 					}

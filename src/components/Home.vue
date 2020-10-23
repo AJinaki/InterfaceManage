@@ -11,34 +11,29 @@
 					<div style="text-align: center;margin-bottom: 10px;"><img class="bannerLogo" src="../assets/logo.png" /></div>
 					<router-link :to="navPath[0].path" tag="div">
 						<div :class="navIndex === 1 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="home" class="navbar-icon" />首页
-						</div>
-					</router-link>
-					<router-link :to="navPath[5].path" tag="div">
-						<div :class="navIndex === 6 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="dot-chart" class="navbar-icon" />链路可视化
+							<a-icon type="home" class="navbar-icon" />概览
 						</div>
 					</router-link>
 					<router-link :to="navPath[1].path" tag="div">
 						<div :class="navIndex === 2 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="file-search" class="navbar-icon" />高级查询
+							<a-icon type="dot-chart" class="navbar-icon" />链路可视化
 						</div>
 					</router-link>
-					<router-link v-if="advMode" :to="navPath[2].path" tag="div">
+					<router-link v-if="superMode" :to="navPath[2].path" tag="div">
 						<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="idcard" class="navbar-icon" />新增通讯信息
+							<a-icon type="idcard" class="navbar-icon" />用户管理
 						</div>
 					</router-link>
 					<router-link v-if="superMode" :to="navPath[3].path" tag="div">
 						<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="team" class="navbar-icon" />管理管理员
+							<a-icon type="team" class="navbar-icon" />角色管理
 						</div>
 					</router-link>
-					<router-link v-if="superMode" :to="navPath[4].path" tag="div">
+					<!-- <router-link v-if="superMode" :to="navPath[4].path" tag="div">
 						<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
 							<a-icon type="user-add" class="navbar-icon" />新增管理员
 						</div>
-					</router-link>
+					</router-link> -->
 					<div style="display: flex;justify-content: center;">
 						<div v-if="advMode && !superMode" class="navbar-item-changepass" @click="changePassword">
 							<a-icon type="lock" class="navbar-icon" style="margin-left: 0px;" />修改密码
@@ -87,22 +82,16 @@
 				 *动态路由路径，字段与router/index.js里的name对应
 				 */
 				navPath: [{
-						path: 'QuickSearch'
+						path: 'GeneralView'/* 0 */
 					},
 					{
-						path: 'AdvanceSearch'
+						path: 'Visualize'/* 1 */
 					},
 					{
-						path: 'addAddress'
+						path: 'ManageUser'/* 2 */
 					},
 					{
-						path: 'ManageAdmin'
-					},
-					{
-						path: 'addAdmin'
-					},
-					{
-						path: 'Visualize'
+						path: 'AMRole'/* 3 */
 					}
 				],
 				navIndex: 1,
