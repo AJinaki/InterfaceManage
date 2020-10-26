@@ -153,7 +153,7 @@
 			},
 			getLinkNodes() {
 				request({
-					url: '/getLinkNodes/B',
+					url: '/5/getLinkNodes/B',
 					method: 'get'
 				}).then(res => {
 					this.LinkNodesData = res;
@@ -166,7 +166,7 @@
 			},
 			getLineMaps() {
 				request({
-					url: '/getLineMaps/B',
+					url: '/5/getLineMaps/B',
 					method: 'get'
 				}).then(res => {
 					this.LineMapsData = res;

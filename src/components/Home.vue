@@ -11,7 +11,7 @@
 					<div style="text-align: center;margin-bottom: 10px;"><img class="bannerLogo" src="../assets/logo.png" /></div>
 					<router-link :to="navPath[0].path" tag="div">
 						<div :class="navIndex === 1 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="home" class="navbar-icon" />概览
+							<a-icon type="home" class="navbar-icon" />首页
 						</div>
 					</router-link>
 					<router-link :to="navPath[1].path" tag="div">
@@ -19,21 +19,59 @@
 							<a-icon type="dot-chart" class="navbar-icon" />链路可视化
 						</div>
 					</router-link>
-					<router-link v-if="superMode" :to="navPath[2].path" tag="div">
-						<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="idcard" class="navbar-icon" />用户管理
-						</div>
-					</router-link>
-					<router-link v-if="superMode" :to="navPath[3].path" tag="div">
-						<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="team" class="navbar-icon" />角色管理
-						</div>
-					</router-link>
-					<!-- <router-link v-if="superMode" :to="navPath[4].path" tag="div">
-						<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
-							<a-icon type="user-add" class="navbar-icon" />新增管理员
-						</div>
-					</router-link> -->
+					<div class="navbar-item" @click="openGroupA">
+						<a-icon type="pic-center" class="navbar-icon" />系统管理
+						<a-icon type="right" :rotate=" showGroupA == true ? 90 : 0 " style="float: right;margin-right: 10px;margin-top: 3px;" />
+					</div>
+					<div v-if="showGroupA" class="navbar-group-item" :style="'height:' + showGroupA == true ? '500px' : '0'">
+						<router-link :to="navPath[3].path" tag="div">
+							<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="idcard" class="navbar-icon-group" />所有系统清单
+							</div>
+						</router-link>
+						<router-link :to="navPath[2].path" tag="div">
+							<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="user-add" class="navbar-icon-group" />管理系统
+							</div>
+						</router-link>
+						<router-link :to="navPath[4].path" tag="div">
+							<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="team" class="navbar-icon-group" />新增系统
+							</div>
+						</router-link>
+						<router-link :to="navPath[5].path" tag="div">
+							<div :class="navIndex === 6 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="idcard" class="navbar-icon-group" />所有服务清单
+							</div>
+						</router-link>
+						<router-link :to="navPath[6].path" tag="div">
+							<div :class="navIndex === 7 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="team" class="navbar-icon-group" />新增服务
+							</div>
+						</router-link>
+					</div>
+					<!-- <div class="navbar-item" @click="openGroupB">
+						<a-icon type="pic-center" class="navbar-icon" />折叠面板B
+						<a-icon type="right" :rotate=0 style="float: right;margin-right: 10px;margin-top: 3px;" />
+					</div>
+					<div v-if="showGroupB" class="navbar-group-item">
+						<router-link v-if="advMode" :to="navPath[2].path" tag="div">
+							<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="idcard" class="navbar-icon" />所有服务
+							</div>
+						</router-link>
+						<router-link v-if="superMode" :to="navPath[3].path" tag="div">
+							<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="team" class="navbar-icon" />管理管理员
+							</div>
+						</router-link>
+						<router-link v-if="superMode" :to="navPath[4].path" tag="div">
+							<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="user-add" class="navbar-icon" />新增管理员
+							</div>
+						</router-link>
+					</div> -->
+
 					<div style="display: flex;justify-content: center;">
 						<div v-if="advMode && !superMode" class="navbar-item-changepass" @click="changePassword">
 							<a-icon type="lock" class="navbar-icon" style="margin-left: 0px;" />修改密码
@@ -82,16 +120,25 @@
 				 *动态路由路径，字段与router/index.js里的name对应
 				 */
 				navPath: [{
-						path: 'GeneralView'/* 0 */
+						path: 'GeneralView'
 					},
 					{
-						path: 'Visualize'/* 1 */
+						path: 'Visualize'
 					},
 					{
-						path: 'ManageUser'/* 2 */
+						path: 'SystemList'
 					},
 					{
-						path: 'AMRole'/* 3 */
+						path: 'AllSystemList'
+					},
+					{
+						path: 'SystemAdd'
+					},
+					{
+						path: 'AllServiceList'
+					},
+					{
+						path: 'ServiceAdd'
 					}
 				],
 				navIndex: 1,
@@ -114,7 +161,9 @@
 							span: 16
 						},
 					},
-				}
+				},
+				showGroupA: false,
+				showGroupB: false,
 			}
 		},
 		watch: {
@@ -222,6 +271,14 @@
 			},
 			onCancel() {
 				this.isChpvisible = false;
+			},
+			openGroupA() {
+				console.log("openGroupA");
+				this.showGroupA = !this.showGroupA;
+			},
+			openGroupB() {
+				console.log("openGroupB");
+				this.showGroupB = !this.showGroupB;
 			}
 		},
 		beforeCreate() {
@@ -233,7 +290,7 @@
 			});
 		},
 		created() {
-			//console.log("mode: " + this.$store.state.mode);
+			console.log("mode: " + this.$store.state.mode);
 			//console.log("erp:" + this.$store.state.erp);
 			/*
 			 *权限控制高权限访问链接可见性
@@ -269,6 +326,17 @@
 		flex-direction: column;
 		padding: 15px;
 		text-align: left;
+	}
+
+	.navbar-group {}
+
+	.navbar-group-item {
+		margin-left: 20px;
+	}
+
+	.navbar-icon-group {
+		margin-left: 20px;
+		margin-right: 5px;
 	}
 
 	.navbar-item {

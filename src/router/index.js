@@ -16,6 +16,13 @@ import AddUser from '@/components/userManage/AddUser.vue'
 import ManageUser from '@/components/userManage/ManageUser.vue'
 import AMRole from '@/components/userManage/AMRole.vue'
 
+/* 二四组功能路由 */
+import SystemList from '@/components/SysManage/SystemList.vue'
+import SystemDetail from '@/components/SysManage/SystemDetail.vue'
+import SystemAdd from '@/components/SysManage/SystemAdd.vue'
+import SystemUpdate from '@/components/SysManage/SystemUpdate.vue'
+import AllSystemList from '@/components/SysManage/AllSystemList.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -96,6 +103,31 @@ export default new Router({
 					meta: {
 						requiresAuth: true
 					}
+				},
+				{
+					path: '/SystemList',
+					name: 'SystemList',
+					component: SystemList
+				},
+				{
+					path: '/SystemDetail',
+					name: 'SystemDetail',
+					component: SystemDetail
+				},
+				{
+					path: '/SystemAdd',
+					name: 'SystemAdd',
+					component: SystemAdd
+				},
+				{
+					path: '/SystemUpdate',
+					name: 'SystemUpdate',
+					component: SystemUpdate
+				},
+				{
+					path: '/AllSystemList',
+					name: 'AllSystemList',
+					component: AllSystemList
 				}
 			]
 		}

@@ -18,6 +18,13 @@ module.exports = {
 				'^/api/5': ''
 			}
 		},
+		"/api/2/*": {
+			target: 'http://localhost:8092',
+			changeOrigin: true,
+			pathRewrite: {
+				'^/api/2': ''
+			}
+		},
 		"/api/3/*": {
 			target: 'http://localhost:8093',
 			changeOrigin: true,
