@@ -256,16 +256,17 @@
 							  },
 							]" />
 				</a-form-item> -->
-        <a-form-item v-bind="formItemLayout" label="上线时间" has-feedback>
-                    <a-form-item>
-                      <a-date-picker  style="width: 100%" v-decorator="[
+				<a-form-item v-bind="formItemLayout" label="上线时间" has-feedback>
+					<a-form-item>
+						<a-date-picker style="width: 100%" v-decorator="[
                         'onlineTime',
                         {
                           initialValue:this.mydata.onlineTime,
                         }
-                        ]"  :showToday="false" />
-                    </a-form-item>
-                  </a-form-item>
+                        ]"
+						 :showToday="false" />
+					</a-form-item>
+				</a-form-item>
 
 				<a-form-item v-bind="formItemLayout" label="项目组织实时单位" has-feedback>
 					<a-input v-decorator="[
@@ -604,7 +605,7 @@
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有LICENSE硬件绑定" has-feedback>
 
-      <a-select v-decorator="[
+					<a-select v-decorator="[
          'licenseStatus',
           {
             initialValue:this.mydata2.licenseStatus,
@@ -612,15 +613,14 @@
               {
                 required: true, message: '请选择是否有LICENSE硬件绑定!'
               }]
-            },]"
-           >
-        <a-select-option value="是">是</a-select-option>
-        <a-select-option value="否">否</a-select-option>
-      </a-select>
+            },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有加密狗" has-feedback>
 
-         <a-select v-decorator="[
+					<a-select v-decorator="[
             'dongleStatus',
              {
                initialValue:this.mydata2.dongleStatus,
@@ -628,14 +628,13 @@
                  {
                    required: true, message: '是否有加密狗不能为空!'
                  }]
-               },]"
-              >
-           <a-select-option value="是">是</a-select-option>
-           <a-select-option value="否">否</a-select-option>
-         </a-select>
+               },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否绑定CPU磁盘ID号码" has-feedback>
-      <a-select v-decorator="[
+					<a-select v-decorator="[
          'cpuDiskStatus',
           {
             initialValue:this.mydata2.cpuDiskStatus,
@@ -643,14 +642,13 @@
               {
                 required: true, message: '是否绑定CPU磁盘ID号码不能为空!'
               }]
-            },]"
-           >
-        <a-select-option value="是">是</a-select-option>
-        <a-select-option value="否">否</a-select-option>
-      </a-select>
+            },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否插有密钥卡" has-feedback>
-      <a-select v-decorator="[
+					<a-select v-decorator="[
          'keycardStatus',
           {
             initialValue:this.mydata2.keycardStatus,
@@ -658,14 +656,13 @@
               {
                 required: true, message: '是否插有密钥卡不能为空!'
               }]
-            },]"
-           >
-        <a-select-option value="是">是</a-select-option>
-        <a-select-option value="否">否</a-select-option>
-      </a-select>
+            },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有防篡改" has-feedback>
-        <a-select v-decorator="[
+					<a-select v-decorator="[
            'tamperProofStatus',
             {
               initialValue:this.mydata2.tamperProofStatus,
@@ -673,15 +670,14 @@
                 {
                   required: true, message: '是否有防篡改不能为空!'
                 }]
-              },]"
-             >
-          <a-select-option value="是">是</a-select-option>
-          <a-select-option value="否">否</a-select-option>
-        </a-select>
+              },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有F5" has-feedback>
 
-        <a-select v-decorator="[
+					<a-select v-decorator="[
            'f5Status',
             {
               initialValue:this.mydata2.f5Status,
@@ -689,14 +685,13 @@
                 {
                   required: true, message: '是否有F5不能为空!'
                 }]
-              },]"
-             >
-          <a-select-option value="是">是</a-select-option>
-          <a-select-option value="否">否</a-select-option>
-        </a-select>
+              },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否已接入批量管理平台" has-feedback>
-      <a-select v-decorator="[
+					<a-select v-decorator="[
          'bmStatus',
           {
             initialValue:this.mydata2.bmStatus,
@@ -704,15 +699,14 @@
               {
                 required: true, message: '是否已接入批量管理平台不能为空!'
               }]
-            },]"
-           >
-        <a-select-option value="是">是</a-select-option>
-        <a-select-option value="否">否</a-select-option>
-      </a-select>
+            },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否已接入应用自动发布平台" has-feedback>
 
-      <a-select v-decorator="[
+					<a-select v-decorator="[
          'autoPublishStatus',
           {
             initialValue:this.mydata2.autoPublishStatus,
@@ -720,11 +714,10 @@
               {
                 required: true, message: '是否已接入应用自动发布平台不能为空!'
               }]
-            },]"
-           >
-        <a-select-option value="是">是</a-select-option>
-        <a-select-option value="否">否</a-select-option>
-      </a-select>
+            },]">
+						<a-select-option value="是">是</a-select-option>
+						<a-select-option value="否">否</a-select-option>
+					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="前端技术框架" has-feedback>
 					<a-input v-decorator="[
@@ -887,7 +880,7 @@
 	export default {
 		data() {
 			return {
-        onlineTime:undefined,
+				onlineTime: undefined,
 				mydata: null,
 				mydata2: null,
 				confirmDirty: false,
@@ -1002,27 +995,32 @@
 							/* this.isSpinning = false;
 							this.$message.Success('添加信息成功，请等待审核！');
 							this.$router.push("/Success"); */
-							request({
-								url: '/2/updateSystemChildTable',
-								method: 'post',
-								/* data: {
-									name
-								}, */
-								params: this.mydata2
-							}).then(res => {
-								console.log(res)
-								this.isSpinning = false;
-								this.$message.success('修改信息成功！');
-								this.$router.push("/Success");
-							}).catch(error => {
-								this.isTBLoading = false;
-								this.$message.success('修改信息成功！');
-								console.log(error.response);
-							})
+							console.log(res);
+							if (res === 'success') {
+								request({
+									url: '/2/updateSystemChildTable',
+									method: 'post',
+									/* data: {
+										name
+									}, */
+									params: this.mydata2
+								}).then(res => {
+									console.log(res)
+									this.isSpinning = false;
+									this.$message.success('修改信息成功1！');
+									this.$router.push("/Success");
+								}).catch(error => {
+									this.isTBLoading = false;
+									this.$message.success('修改信息成功2！');
+									console.log(error.response);
+								})
+							} else {//error
+								this.$message.error('修改失败！');
+							}
 						}).catch(error => {
 							this.isTBLoading = false;
-							this.$message.success('修改信息成功！');
-							console.log(error.response);
+							this.$message.success('发生了某些错误！');
+							console.log(error);
 						})
 
 

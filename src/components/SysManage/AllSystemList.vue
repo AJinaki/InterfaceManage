@@ -2,7 +2,54 @@
 	<div class="rootDiv" style="width: auto;overflow-x: scroll;">
 		<div class="searchDiv" style="text-align: right;width: 100%; ">
 			<a-form :form="form" style="display: inline-block;">
+				<a-form-item v-bind="formItemLayout" style="width:150px;display: inline-block;">
+					<a-button type="primary" @click="showDrawer" style="width:120px;display: inline-block;margin-right: 20px;">
+						导入导出
+					</a-button>
 				</a-form-item>
+				<a-drawer title="导入导出" placement="right" :width="720" :closable="false" :visible="drawerVisibe" @close="onClose">
+					<p>导入主表</p>
+					<a-form-item v-bind="formItemLayout" style="width:250px;display: inline-block;">
+						<input type="file" id="fileExport" @change="handleFileChange" ref="inputer">
+					</a-form-item>
+					<p>导入子表</p>
+					<a-form-item v-bind="formItemLayout" style="width:250px;display: inline-block;">
+						<input type="file" id="fileExport2" @change="handleFileChange2" ref="inputer2">
+					</a-form-item>
+					<p>导出主表</p>
+					<a-form-item v-bind="formItemLayout" style="width:120px;display: inline-block;margin-right: 20px;">
+						<download-excel style="display: inline-block;" class="export-excel-wrapper" :data="json_data" :fields="json_fields"
+						 name="系统信息导出.xls">
+							<!-- 上面可以自定义自己的样式，还可以引用其他组件button -->
+							<a-button type="primary">导出主表EXCEL</a-button>
+						</download-excel>
+					</a-form-item>
+					<p>导出子表</p>
+					<a-form-item v-bind="formItemLayout" style="width:120px;display: inline-block;margin-right: 20px;">
+						<download-excel style="display: inline-block;" class="export-excel-wrapper" :data="json_data2" :fields="json_fields2"
+						 name="系统信息子表导出.xls">
+							<!-- 上面可以自定义自己的样式，还可以引用其他组件button -->
+							<a-button type="primary">导出子表EXCEL</a-button>
+						</download-excel>
+					</a-form-item>
+					<div :style="{
+                        position: 'absolute',
+                        right: 0,
+                        bottom: 0,
+                        width: '100%',
+                        borderTop: '1px solid #e9e9e9',
+                        padding: '10px 16px',
+                        background: '#fff',
+                        textAlign: 'right',
+                        zIndex: 1,
+                      }">
+
+						<a-button :style="{ marginRight: '8px' }" @click="onClose">
+							Cancel
+						</a-button>
+
+					</div>
+				</a-drawer>
 				<a-form-item v-bind="formItemLayout" style="width:150px;display: inline-block;">
 					<a-input v-model="sdata.primary_App_Sys_Name" placeholder="一级系统名称" />
 				</a-form-item>
@@ -28,29 +75,11 @@
 				</a-tag>
 				<div slot="action" slot-scope="text, record, index">
 					<a-button @click="showDetail(index + (paginationCurrent - 1) * 10)" style="margin-left: 6px;">详情</a-button>
-					<a-dropdown style="margin-left: 0;">
-						<a-menu slot="overlay">
-							<a-menu-item key="1" @click="showInterface(index + (paginationCurrent - 1) * 10)">
-								接口
-							</a-menu-item>
-							<a-menu-item key="2" @click="editItem(index + (paginationCurrent - 1) * 10)">
-								编辑
-							</a-menu-item>
-							<a-menu-item key="3" style="color: red;" @click="DeletAlert(index)">
-								删除
-							</a-menu-item>
-						</a-menu>
-						<a-button> 操作
-							<a-icon type="down" />
-						</a-button>
-					</a-dropdown>
+					<a-button @click="showInterface(index + (paginationCurrent - 1) * 10)" style="margin-left: 6px;">接口</a-button>
 				</div>
+
 			</a-table>
 		</div>
-		<a-modal title="Title" :visible="isDelVisible" :confirm-loading="confirmLoading" @ok="deleteItem(index + (paginationCurrent - 1) * 10)"
-		 @cancel="handleCancel">
-			<p>是否删除</p>
-		</a-modal>
 		<a-modal :visible="isUpdvisible" :confirm-loading="confirmLoading" @ok="handleOk" @cancel="handleCancel" style="adrDialog"
 		 :maskClosable="false" cancelText="再想想" okText="更新" okType="danger" width="1020px">
 			<div class="updateTitle">更新</div>
@@ -519,6 +548,11 @@
 			align: 'center',
 			fixed: 'left'
 		},
+		// {
+		// 	title: '序号',
+		// 	dataIndex: 'sysId',
+		// 	key: 'sysId'
+		// },
 		{
 			title: '应用系统名称(一级)',
 			dataIndex: 'primaryAppSysName',
@@ -540,6 +574,12 @@
 			key: 'sysCategory',
 			align: 'center'
 		},
+
+		// {
+		// 	title: '一级系统简称',
+		// 	dataIndex: 'primarySysAbb',
+		// 	key: 'primarySysAbb'
+		// },
 		{
 			title: '系统层级',
 			dataIndex: 'sysClass',
@@ -547,6 +587,27 @@
 
 			align: 'center'
 		},
+		// {
+		// 	title: '能力域',
+		// 	dataIndex: 'domain',
+		// 	key: 'domain'
+		// },
+		// {
+		// 	title: '一级系统唯一标识',
+		// 	dataIndex: 'primarySysId',
+		// 	key: 'primarySysId'
+		// },
+
+		// {
+		// 	title: '二级系统简称',
+		// 	dataIndex: 'secondarySysAbb',
+		// 	key: 'secondarySysAbb'
+		// },
+		// {
+		// 	title: '二级系统唯一标识',
+		// 	dataIndex: 'secondarySysId',
+		// 	key: 'secondarySysId'
+		// },
 		{
 			title: '渠道码',
 			dataIndex: 'channelCode',
@@ -596,6 +657,11 @@
 			key: 'sysLevel',
 			align: 'center'
 		},
+		// {
+		// 	title: '外联机构',
+		// 	dataIndex: 'outreach',
+		// 	key: 'outreach'
+		// },
 		{
 			title: '服务提供方',
 			dataIndex: 'ifServiceProvider',
@@ -608,6 +674,21 @@
 			key: 'ifServiceConsumer',
 			align: 'center'
 		},
+		// {
+		// 	title: '备用1',
+		// 	dataIndex: 'spare1',
+		// 	key: 'spare1'
+		// },
+		// {
+		// 	title: '备用2',
+		// 	dataIndex: 'spare2',
+		// 	key: 'spare2'
+		// },
+		// {
+		// 	title: '备用3',
+		// 	dataIndex: 'spare3',
+		// 	key: 'spare3'
+		// },
 		{
 			ttitle: '操作',
 			width: 200,
@@ -657,7 +738,42 @@
 					'备用2': 'spare2',
 					'备用3': 'spare3'
 				},
+				json_fields2: {
+					'序号': 'id',
+					'二级系统唯一标识': 'secondarySysId',
+					'运维人员A': 'opsA',
+					'运维人员B': 'opsB',
+					'研发人员': 'devPerson',
+					'领域架构师': 'architect',
+					'系统主管单位人员': 'sysSupervisorPerson',
+					'联系方式': 'sysSupervisorTel',
+					'厂商人员': 'serviceProviderPerson',
+					'联系方式2': 'serviceProviderTel',
+					'TPS': 'tps',
+					'交易响应时间': 'qps',
+					'是否有LICENSE硬件绑定': 'licenseStatus',
+					'是否有加密狗': 'dongleStatus',
+					'是否绑定CPU磁盘ID号码': 'cpuDiskStatus',
+					'是否插有密钥卡': 'keycardStatus',
+					'是否有防篡改': 'tamperProofStatus',
+					'是否有F5': 'f5Status',
+					'是否已接入批量管理平台': 'bmStatus',
+					'是否已接入应用自动发布平台': 'autoPublishStatus',
+					'前端技术框架': 'frontFrame',
+					'后端技术框架': 'backFrame',
+					'数据库': 'dataBaseType',
+					'中间件': 'middleware',
+					'展现工具': 'showTool',
+					'分析工具': 'analysisTool',
+					'其他产品工具': 'otherTool',
+					'备用1': 'spare1',
+					'备用2': 'spare2',
+					'备用3': 'spare3',
+				},
 				json_data: [],
+				json_data2: [],
+				fileList: [],
+				uploading: false,
 				json_meta: [
 					[{
 						" key ": " charset ",
@@ -676,6 +792,7 @@
 				isTBLoading: true,
 				isUpdvisible: false,
 				isDelVisible: false,
+				drawerVisibe: false,
 				id: 0,
 				remarks: '',
 				confirmLoading: false,
@@ -710,15 +827,16 @@
 			},
 			handleFileChange(e) {
 				let that = this;
-				this.$message.success("数据库已经成功导入，审核通过以后才能显示");
+				this.$message.success("主表已经成功导入");
 				let inputDOM = this.$refs.inputer;
 				this.file = inputDOM.files[0]; // 通过DOM取文件数据
 				let size = Math.floor(this.file.size / 1024); //计算文件的大小　
 				this.formData = new FormData(); //new一个formData事件
 				this.formData.append("file", this.file); //将file属性添加到formData里
 				//此时formData就是我们要向后台传的参数了
+
 				request({
-					url: "/uploadFile",
+					url: "/2/uploadFile",
 					data: that.formData, //在此处上传文件
 					method: "post",
 					headers: {
@@ -727,10 +845,40 @@
 				}).then(function(res) {
 					this.$message.success("导入成功数据：" + res.data.length);
 					this.$router.push("/Success");
+
 					console.log(res, "此处应该是请求成功的回调")
 				}).catch(function(req) {
 					console.log(req, "请求失败的回调，Execl文件格式是否合法")
 				})
+				location.reload();
+			},
+			handleFileChange2(e) {
+				let that = this;
+				this.$message.success("数据库子表已经成功导入");
+				let inputDOM = this.$refs.inputer2;
+				this.file = inputDOM.files[0]; // 通过DOM取文件数据
+				let size = Math.floor(this.file.size / 1024); //计算文件的大小　
+				this.formData = new FormData(); //new一个formData事件
+				this.formData.append("file", this.file); //将file属性添加到formData里
+				//此时formData就是我们要向后台传的参数了
+
+				request({
+					url: "/2/uploadFileChild",
+					data: that.formData, //在此处上传文件
+					method: "post",
+					headers: {
+						'Content-Type': 'multipart/form-data' //值得注意的是，这个地方一定要把请求头更改一下
+					}
+				}).then(function(res) {
+					this.$message.success("导入子表成功数据：" + res.data.length);
+					this.$router.push("/Success");
+
+					console.log(res, "此处应该是请求成功的回调")
+				}).catch(function(req) {
+					console.log(req, "请求失败的回调，Execl文件格式是否合法")
+				})
+				location.reload();
+
 			},
 			deleteItem(index) {
 				//console.log('当前删除index:', index);
@@ -767,8 +915,9 @@
 					onCancel() {},
 				});
 			},
-			editItem(index) {
 
+			editItem(index) {
+				debugger
 				var that = this;
 				let sysId = this.tableData[index].sysId;
 				this.$router.push({
@@ -850,12 +999,28 @@
 					params: this.sdata
 				}).then(res => {
 					this.tableData = res;
-					//console.log(this.tableData);
+					console.log(this.tableData);
 					this.json_data = this.tableData;
 					this.mydata = this.tableData[0];
 					this.isTBLoading = false;
 				}).catch(error => {
 					this.isTBLoading = false;
+					this.$message.error('出现了某些错误！请联系管理员');
+					console.log(error.response);
+				})
+			},
+			loadData2() {
+				request({
+					url: '/2/findAllChildTable',
+					method: 'get',
+					/* data: {
+						name
+					}, */
+					params: {}
+				}).then(res => {
+					this.json_data2 = res;
+					console.log(this.json_data2);
+				}).catch(error => {
 					this.$message.error('出现了某些错误！请联系管理员');
 					console.log(error.response);
 				})
@@ -874,7 +1039,14 @@
 					this.$message.error('出现了某些错误！请联系管理员');
 					console.log(error.response);
 				})
-			}
+			},
+			showDrawer() {
+				this.drawerVisibe = true;
+			},
+			onClose() {
+				this.drawerVisibe = false;
+			},
+
 		},
 		beforeCreate() {
 			this.form = this.$form.createForm(this, {
@@ -883,7 +1055,9 @@
 		},
 		created() {
 			this.loadData();
-		}
+			this.loadData2();
+		},
+
 	};
 </script>
 

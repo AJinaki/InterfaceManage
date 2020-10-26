@@ -126,7 +126,7 @@
 						path: 'Visualize'
 					},
 					{
-						path: 'SystemList'
+						path: 'ManageSystemList'
 					},
 					{
 						path: 'AllSystemList'

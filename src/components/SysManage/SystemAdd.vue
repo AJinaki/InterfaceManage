@@ -148,7 +148,7 @@
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="运行状态" has-feedback>
+				<!-- <a-form-item v-bind="formItemLayout" label="运行状态" has-feedback>
 					<a-input v-decorator="[
 							  'runStatus',
 							  {
@@ -160,7 +160,7 @@
 								],
 							  },
 							]" />
-				</a-form-item>
+				</a-form-item> -->
 				<a-form-item v-bind="formItemLayout" label="归属机构" has-feedback>
 					<a-input v-decorator="[
 							  'affiliation',
@@ -238,7 +238,7 @@
                              }
                            ],
                          },
-                        ]"/>
+                        ]" :showToday="false" />
 				            </a-form-item>
 				          </a-form-item>
 				<a-form-item v-bind="formItemLayout" label="项目组织实时单位" has-feedback>
@@ -1036,31 +1036,39 @@
 							}, */
 							params: this.mydata
 						}).then(res => {
+							console.log(res);
+							if(res==='success')
+							{
+								request({
+									url: '/2/addSystemChildTable',
+									method: 'post',
+									/* data: {
+										name
+									}, */
+									params: this.mydata2
+								}).then(res => {
+									console.log(res);
+									//alert("添加成功123");
+									that.isSpinning = false;
+									that.$message.success('添加信息成功，请等待审核！');
+									that.$router.push("/Success");
+								}).catch(error => {
+									that.isTBLoading = false;
+									that.$message.success('添加信息成功，请等待审核！');
+									console.log(error.response);
+								})
+							}else
+							{
+								this.$message.error('添加失败！');
+							}
 							/* this.isSpinning = false;
 							this.$message.Success('添加信息成功，请等待审核！');
 							this.$router.push("/Success"); */
-							request({
-								url: '/2/addSystemChildTable',
-								method: 'post',
-								/* data: {
-									name
-								}, */
-								params: this.mydata2
-							}).then(res => {
-								console.log(res);
-								//alert("添加成功123");
-								that.isSpinning = false;
-								that.$message.success('添加信息成功，请等待审核！');
-								that.$router.push("/Success");
-							}).catch(error => {
-								that.isTBLoading = false;
-								that.$message.success('添加信息成功，请等待审核！');
-								console.log(error.response);
-							})
+							
 						}).catch(error => {
 							this.isTBLoading = false;
-							this.$message.Success('添加信息成功，请等待审核！');
-							console.log(error.response);
+							this.$message.success('添加信息成功，请等待审核！');
+							console.log(error);
 						})
 
 

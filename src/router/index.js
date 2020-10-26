@@ -17,7 +17,7 @@ import ManageUser from '@/components/userManage/ManageUser.vue'
 import AMRole from '@/components/userManage/AMRole.vue'
 
 /* 二四组功能路由 */
-import SystemList from '@/components/SysManage/SystemList.vue'
+import ManageSystemList from '@/components/SysManage/ManageSystemList.vue'
 import SystemDetail from '@/components/SysManage/SystemDetail.vue'
 import SystemAdd from '@/components/SysManage/SystemAdd.vue'
 import SystemUpdate from '@/components/SysManage/SystemUpdate.vue'
@@ -105,9 +105,9 @@ export default new Router({
 					}
 				},
 				{
-					path: '/SystemList',
-					name: 'SystemList',
-					component: SystemList
+					path: '/ManageSystemList',
+					name: 'ManageSystemList',
+					component: ManageSystemList
 				},
 				{
 					path: '/SystemDetail',

@@ -14,7 +14,14 @@ import '../src/style/custom.less'
 Vue.config.productionTip = false
 
 Vue.use(Antd)
-//Vue.use(Vis)
+
+// Vue.use(XLSX)导出Execl
+import XLSX from 'xlsx'
+Vue.use(XLSX)
+
+//导出execl
+import JsonExcel from 'vue-json-excel'
+Vue.component('downloadExcel', JsonExcel)
 
 router.beforeEach((to, from, next) => {
     //  matched的数组中包含$route对象的检查元字段
