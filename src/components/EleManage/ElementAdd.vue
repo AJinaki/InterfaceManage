@@ -1,10 +1,10 @@
 <template>
 	<div class="addDiv">
-		<div class="addTitle">添加新的系统</div>
+		<div class="addTitle">添加新的服务</div>
 		<a-divider />
 		<div class="addForm">
 			<a-form :form="form" :label-col="labelCol" :wrapper-col="wrapperCol" @submit="onSubmit">
-				<a-form-item v-show="false" v-bind="formItemLayout" label="系统自增序号" has-feedback>
+				<!-- <a-form-item v-show="false" v-bind="formItemLayout" label="服务自增序号" has-feedback>
 					<a-input v-decorator="[
 							  'sysId',
 							  {
@@ -12,91 +12,91 @@
 								rules: [
 								  {
 									required: true,
-									message: '系统自增序号不能为空！',
+									message: '自增序号不能为空！',
 								  }
 								],
 							  },
 							]" />
-				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="系统类别" has-feedback>
+				</a-form-item> -->
+				<a-form-item v-bind="formItemLayout" label="服务代码" has-feedback>
 					<a-input v-decorator="[
 							  'sysCategory',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '系统类别不能为空！',
+									message: '服务代码不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="应用系统名称(一级)" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务英文名" has-feedback>
 					<a-input v-decorator="[
 							  'primaryAppSysName',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '应用系统名称(一级)不能为空！',
+									message: '服务英文名不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="一级系统简称" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务中文名" has-feedback>
 					<a-input v-decorator="[
 							  'primarySysAbb',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '一级系统简称不能为空！',
+									message: '服务中文名不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="系统层级" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务类型" has-feedback>
 					<a-input v-decorator="[
 							  'sysClass',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '系统层级不能为空！',
+									message: '服务类型不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="能力域" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务描述" has-feedback>
 					<a-input v-decorator="[
 							  'domain',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '能力域不能为空！',
+									message: '服务描述不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="一级系统唯一标识" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="所属系统" has-feedback>
 					<a-input v-decorator="[
 							  'primarySysId',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '一级系统唯一标识不能为空！',
+									message: '所属系统不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="应用系统名称(二级)" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务关键字" has-feedback>
 					<a-input v-decorator="[
 							  'secondaryAppSysName',
 							  {
@@ -108,40 +108,39 @@
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="二级系统简称" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务版本" has-feedback>
 					<a-input v-decorator="[
 							  'secondarySysAbb',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '二级系统简称不能为空！',
+									message: '服务版本不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="二级系统唯一标识" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="注册日期" has-feedback>
 					<a-input v-decorator="[
 							  'secondarySysId',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '二级系统唯一标识不能为空！',
+									message: '注册日期不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="渠道码" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="依赖的服务列表" has-feedback>
 					<a-input v-decorator="[
 							  'channelCode',
 							  {
 								rules: [
 								  {
-									required: true,
-									message: '渠道码不能为空！',
+								
 								  }
 								],
 							  },
@@ -160,140 +159,136 @@
 							  },
 							]" />
 				</a-form-item> -->
-				<a-form-item v-bind="formItemLayout" label="归属机构" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务消费方服务" has-feedback>
 					<a-input v-decorator="[
 							  'affiliation',
 							  {
 								rules: [
 								  {
-									required: true,
-									message: '归属机构不能为空！',
+									
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="系统主管单位" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="实现方法" has-feedback>
 					<a-input v-decorator="[
 							  'sysSupervisor',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '系统主管单位不能为空！',
+									message: '实现方法不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="运维组别" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="服务协议" has-feedback>
 					<a-input v-decorator="[
 							  'opsGroup',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '运维组别不能为空！',
+									message: '服务协议不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="厂商" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="响应时间" has-feedback>
 					<a-input v-decorator="[
 							  'serviceProvider',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '厂商不能为空！',
+									message: '响应时间不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="系统功能简述" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="最大负载" has-feedback>
 					<a-input v-decorator="[
 							  'sysFuncDes',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '系统功能简述不能为空！',
+									message: '最大负载不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="系统上线时间" has-feedback>
-					<a-form-item>
-						<a-date-picker style="width: 100%" v-decorator="[
+				<a-form-item v-bind="formItemLayout" label="报文长度" has-feedback>
+				            <a-form-item>
+				              <a-date-picker style="width: 100%" v-decorator="[
                         'onlineTime',
                          {
                            rules: [
                              {
                            	required: true,
-                           	message: '系统上线时间不能为空！',
+                           	message: '报文长度不能为空！',
                              }
                            ],
                          },
-                        ]"
-						 :showToday="false" />
-					</a-form-item>
-				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="项目组织实时单位" has-feedback>
+                        ]" :showToday="false" />
+				            </a-form-item>
+				          </a-form-item>
+				<a-form-item v-bind="formItemLayout" label="启动日期" has-feedback>
 					<a-input v-decorator="[
 							  'implDep',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '项目组织实时单位不能为空！',
+									message: '启动日期不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="使用范围" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="请求方式" has-feedback>
 					<a-input v-decorator="[
 							  'useRange',
 							  {
 								rules: [
 								  {
 									required: true,
-									message: '使用范围不能为空！',
+									message: '请求方式不能为空！',
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="服务对象" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="输入参数" has-feedback>
 					<a-input v-decorator="[
 							  'serviceUser',
 							  {
 								rules: [
 								  {
-									required: true,
-									message: '服务对象不能为空！',
+								
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="服务时间" has-feedback>
+				<a-form-item v-bind="formItemLayout" label="输出参数" has-feedback>
 					<a-input v-decorator="[
 							  'serviceTime',
 							  {
 								rules: [
 								  {
-									required: true,
-									message: '服务时间不能为空！',
+									
 								  }
 								],
 							  },
 							]" />
 				</a-form-item>
-				<a-form-item v-bind="formItemLayout" label="备注" has-feedback>
+				<!-- <a-form-item v-bind="formItemLayout" label="备注" has-feedback>
 					<a-input v-decorator="[
 							  'remark1',
 							  {
@@ -369,7 +364,7 @@
 								],
 							  },
 							]" />
-				</a-form-item>
+				</a-form-item> -->
 				<!-- <a-form-item v-bind="formItemLayout" label="是否服务提供方" has-feedback>
 					<a-select v-decorator="[
 					   'ifServiceProvider',
@@ -438,13 +433,21 @@
 							]" />
 				</a-form-item> -->
 
-				<a-form-item v-show="false" v-bind="formItemLayout" label="序号" has-feedback>
+				<!-- <a-form-item v-show="false" v-bind="formItemLayout" label="序号" has-feedback>
 					<a-input v-decorator="[
 			  'id',
 			  {
-				initialValue:" 0", rules: [ { required: true, message: '序号不能为空！' , }
-					 ], }, ]" />
-				</a-form-item>
+				initialValue: "0",
+				rules: [
+				  {
+
+					required: true,
+					message: "序号不能为空!",
+				  }
+				],
+			  },
+			]" />
+				</a-form-item> -->
 				<!-- <a-form-item v-show="false" v-bind="formItemLayout" label="二级系统唯一标识" has-feedback>
 					<a-input v-decorator="[
 			  'secondarySysId',
@@ -459,7 +462,7 @@
 			  },
 			]" />
 				</a-form-item> -->
-				<a-form-item v-bind="formItemLayout" label="运维人员A" has-feedback>
+				<!-- <a-form-item v-bind="formItemLayout" label="运维人员A" has-feedback>
 					<a-input v-decorator="[
 			  'opsA',
 			  {
@@ -590,7 +593,7 @@
 			]" />
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有LICENSE硬件绑定" has-feedback>
-					<a-select v-decorator="[
+           <a-select v-decorator="[
              'licenseStatus',
               {
                 rules: [
@@ -598,10 +601,10 @@
                     required: true, message: '请选择是否有LICENSE硬件绑定!'
                   }]
                 },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
-					</a-select>
+               placeholder="请选择" >
+            <a-select-option value="是">是</a-select-option>
+            <a-select-option value="否">否</a-select-option>
+          </a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有加密狗" has-feedback>
 					<a-select v-decorator="[
@@ -612,9 +615,9 @@
 					          required: true, message: '请选择是否有加密狗!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否绑定CPU磁盘ID号码" has-feedback>
@@ -626,9 +629,9 @@
 					          required: true, message: '请选择是否绑定CPU磁盘ID号码!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否插有密钥卡" has-feedback>
@@ -640,9 +643,9 @@
 					          required: true, message: '请选择是插有密钥卡!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有防篡改" has-feedback>
@@ -654,9 +657,9 @@
 					          required: true, message: '请选择是否防篡改!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否有F5" has-feedback>
@@ -668,9 +671,9 @@
 					          required: true, message: '请选择是否有F5!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否已接入批量管理平台" has-feedback>
@@ -682,9 +685,9 @@
 					          required: true, message: '请选择是否已接入批量管理平台!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="是否已接入应用自动发布平台" has-feedback>
@@ -696,9 +699,9 @@
 					          required: true, message: '请选择是否已接入应用自动发布平台!'
 					        }]
 					      },]"
-					 placeholder="请选择">
-						<a-select-option value="是">是</a-select-option>
-						<a-select-option value="否">否</a-select-option>
+					     placeholder="请选择" >
+					  <a-select-option value="是">是</a-select-option>
+					  <a-select-option value="否">否</a-select-option>
 					</a-select>
 				</a-form-item>
 				<a-form-item v-bind="formItemLayout" label="前端技术框架" has-feedback>
@@ -791,7 +794,7 @@
 				],
 			  },
 			]" />
-				</a-form-item>
+				</a-form-item> -->
 				<!-- <a-form-item v-bind="formItemLayout" label="备用1" has-feedback>
 					<a-input v-decorator="[
 			  'spare1two',
@@ -949,7 +952,7 @@
 		},
 		methods: {
 			onSubmit(e) {
-				let that = this;
+				let that=this;
 				e.preventDefault();
 				this.form.validateFieldsAndScroll((err, values) => {
 					if (!err) {
@@ -1029,7 +1032,7 @@
 							params: this.mydata
 						}).then(res => {
 							console.log(res);
-							if (res === 'success') {
+							if(res==='success'){
 								request({
 									url: '/2/addSystemChildTable',
 									method: 'post',
@@ -1048,13 +1051,14 @@
 									that.$message.success('添加信息成功，请等待审核！');
 									console.log(error.response);
 								})
-							} else {
+							}else
+							{
 								this.$message.error('添加失败！');
 							}
 							/* this.isSpinning = false;
 							this.$message.Success('添加信息成功，请等待审核！');
 							this.$router.push("/Success"); */
-
+							
 						}).catch(error => {
 							this.isTBLoading = false;
 							this.$message.success('添加信息成功，请等待审核！');

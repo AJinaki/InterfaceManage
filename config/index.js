@@ -11,28 +11,35 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-		"/api/5/*": {
-			target: 'http://localhost:8095',
-			changeOrigin: true,
-			pathRewrite: {
-				'^/api/5': ''
-			}
-		},
-		"/api/2/*": {
-			target: 'http://localhost:8092',
-			changeOrigin: true,
-			pathRewrite: {
-				'^/api/2': ''
-			}
-		},
-		"/api/3/*": {
-			target: 'http://localhost:8093',
-			changeOrigin: true,
-			pathRewrite: {
-				'^/api/3': ''
-			}
-		}
-	},
+      "/api/5/*": {
+        target: 'http://localhost:8095',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/5': ''
+        }
+      },
+      "/api/1/*": {
+        target: 'http://localhost:8091',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/1': ''
+        }
+      },
+      "/api/2/*": {
+        target: 'http://localhost:8092',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/2': ''
+        }
+      },
+      "/api/3/*": {
+        target: 'http://localhost:8093',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/3': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -42,7 +49,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

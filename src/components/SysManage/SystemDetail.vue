@@ -3,7 +3,7 @@
 		<div class="resultDiv">
 			<div class="show">
 				<table class="ant-table-body">
-					<thead class="ant-table-thead" >
+					<thead class="ant-table-thead">
 						<tr>
 							<th class="" colspan="4"><span>详细信息显示</span>
 								<a-button type="primary" @click="backServiceList()" style="margin-left: 6px;">返回系统列表</a-button>
@@ -11,21 +11,20 @@
 							</th>
 						</tr>
 					</thead>
-
 					<tbody class="ant-table-tbody">
 						<tr>
 							<!-- <td class="titlestyle">系统自增序号</td>
 							<td>{{imsSystem.sysId}}</td> -->
 							<td class="titlestyle">系统类别</td>
 							<td class="detailstyle">{{imsSystem.sysCategory}}</td>
-              <td class="titlestyle">一级系统简称</td>
-              <td class="detailstyle">{{imsSystem.primarySysAbb}}</td>
+							<td class="titlestyle">一级系统简称</td>
+							<td class="detailstyle">{{imsSystem.primarySysAbb}}</td>
 						</tr>
 						<tr>
 							<td class="titlestyle">应用系统名称(一级)</td>
 							<td class="detailstyle">{{imsSystem.primaryAppSysName}}</td>
-              <td class="titlestyle">能力域</td>
-              <td class="detailstyle">{{imsSystem.domain}}</td>
+							<td class="titlestyle">能力域</td>
+							<td class="detailstyle">{{imsSystem.domain}}</td>
 						</tr>
 						<tr>
 							<td class="titlestyle">系统层级</td>
@@ -100,77 +99,38 @@
 						<tr>
 							<td class="titlestyle">重要系统分级</td>
 							<td class="detailstyle">{{imsSystem.sysImportance}}</td>
-              <td class="titlestyle">监控级别</td>
-              <td class="detailstyle">{{imsSystem.montiorLevel}}</td>
+							<td class="titlestyle">监控级别</td>
+							<td class="detailstyle">{{imsSystem.montiorLevel}}</td>
 						</tr>
 						<tr>
 							<td class="titlestyle">展现工具</td>
 							<td class="detailstyle">{{imsSystemSecond.showTool}}</td>
 							<td class="titlestyle">外联机构</td>
 							<td class="detailstyle">{{imsSystem.outreach}}</td>
-
 						</tr>
 						<tr>
 							<td class="titlestyle">是否服务提供方</td>
 							<td class="detailstyle">{{imsSystem.ifServiceProvider}}</td>
 							<td class="titlestyle">是否服务消费方</td>
 							<td class="detailstyle">{{imsSystem.ifServiceConsumer}}</td>
-
 						</tr>
-						<!-- <tr>
-							<td class="titlestyle">备用1</td>
-							<td>{{imsSystem.spare1}}</td>
-							<td class="titlestyle">备用2</td>
-							<td>{{imsSystem.spare2}}</td>
-
-						</tr>
-						<tr>
-							<td class="titlestyle">备用3</td>
-							<td>{{imsSystem.spare3}}</td>
-							<td></td>
-							<td></td>
-						</tr> -->
-
-			<!-- 		</tbody>
-				</table>
-
-				<table class="">
-					<thead class="ant-table-thead">
-						<tr>
-							<th class="" colspan="4"><span>详细信息显示</span>
-								<a-button type="primary" @click="backServiceList()" style="margin-left: 6px;">返回系统列表</a-button>
-
-							</th>
-						</tr>
-					</thead>
-					<tbody class="ant-table-tbody"> -->
-						<!-- <tr style="color:green;background: #eee;">
-							<td class="titlestyle">序号</td>
-							<td>{{imsSystemSecond.id}}</td>
-							<td class="titlestyle">二级系统唯一标识</td>
-							<td>{{imsSystemSecond.secondarySysId}}</td>
-
-						</tr> -->
 						<tr>
 							<td class="titlestyle">运维人员A</td>
 							<td class="detailstyle">{{imsSystemSecond.opsA}}</td>
 							<td class="titlestyle">运维人员B</td>
 							<td class="detailstyle">{{imsSystemSecond.opsB}}</td>
-
 						</tr>
 						<tr>
 							<td class="titlestyle">研发人员</td>
 							<td class="detailstyle">{{imsSystemSecond.devPerson}}</td>
 							<td class="titlestyle">领域架构师</td>
-							<td class="detailstyle" >{{imsSystemSecond.architect}}</td>
-
+							<td class="detailstyle">{{imsSystemSecond.architect}}</td>
 						</tr>
 						<tr>
 							<td class="titlestyle">系统主管单位人员</td>
 							<td class="detailstyle">{{imsSystemSecond.sysSupervisorPerson}}</td>
 							<td class="titlestyle">系统主管单位人员联系方式</td>
 							<td class="detailstyle">{{imsSystemSecond.sysSupervisorTel}}</td>
-
 						</tr>
 						<tr>
 							<td class="titlestyle">厂商人员</td>
@@ -233,21 +193,10 @@
 							<td class="detailstyle">{{imsSystemSecond.analysisTool}}</td>
 							<td class="titlestyle">其他产品工具</td>
 							<td class="detailstyle">{{imsSystemSecond.otherTool}}</td>
-							<!-- <td class="titlestyle">备用1</td>
-							<td>{{imsSystemSecond.spare1}}</td> -->
 						</tr>
-						<!-- <tr>
-							<td class="titlestyle">备用2</td>
-							<td>{{imsSystemSecond.spare2}}</td>
-							<td class="titlestyle">备用3</td>
-							<td>{{imsSystemSecond.spare3}}</td>
-						</tr> -->
-
 					</tbody>
 				</table>
 			</div>
-
-
 		</div>
 
 	</div>
@@ -258,13 +207,12 @@
 		data() {
 			return {
 				imsSystem: null,
-
 			};
 		},
 		methods: {
 			backServiceList() {
 				this.$router.push({
-					name: 'SystemList',
+					name: 'AllSystemList',
 					params: {}
 				});
 			}
@@ -291,26 +239,32 @@
 	};
 </script>
 <style scoped>
-  .show{
-    margin: 30px;
-  }
-  .titlestyle{
-    width: 100px;
-		font-weight: 700;  /*字体加粗*/
-		font-size: 15px; /*字体大小*/
-		color: #000000; /*字体颜色*/
-    background-color: #d9e2ed;
-    text-align: left;
+	.show {
+		margin: 30px;
 	}
-  .detailstyle{
-    width: 200px;
-    color:#000000;
-  }
-  .ant-table-body{
-    width: 100%;
-  }
-  .ant-table-tbody{
-    margin: 30px;
-  }
 
+	.titlestyle {
+		width: 100px;
+		font-weight: 700;
+		/*字体加粗*/
+		font-size: 15px;
+		/*字体大小*/
+		color: #000000;
+		/*字体颜色*/
+		background-color: #d9e2ed;
+		text-align: left;
+	}
+
+	.detailstyle {
+		width: 200px;
+		color: #000000;
+	}
+
+	.ant-table-body {
+		width: 100%;
+	}
+
+	.ant-table-tbody {
+		margin: 30px;
+	}
 </style>

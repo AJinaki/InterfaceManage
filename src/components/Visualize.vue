@@ -59,9 +59,6 @@
 				let option = {
 					animationDurationUpdate: 1500,
 					animationEasingUpdate: 'quinticInOut',
-					tooltip: {
-
-					},
 					series: [{
 						roam: true,
 						focusNodeAdjacency: true,
@@ -153,29 +150,17 @@
 			},
 			getLinkNodes() {
 				request({
-					url: '/5/getLinkNodes/B',
+					url: '/5/getAllLinkMap',
 					method: 'get'
 				}).then(res => {
-					this.LinkNodesData = res;
-					//console.log("LinkNodes"+JSON.stringify(res));
-					this.getLineMaps();
+					console.log(res);
+					this.LinkNodesData = res[0];
+          this.LineMapsData = res[1];
+          this.initEchart('linkChart');
+          this.isLoading = false;
 				}).catch(error => {
 					this.$message.error('出现了某些错误！请联系管理员');
-					console.log(error.response);
-				})
-			},
-			getLineMaps() {
-				request({
-					url: '/5/getLineMaps/B',
-					method: 'get'
-				}).then(res => {
-					this.LineMapsData = res;
-					//console.log("LineMaps"+JSON.stringify(res));
-					this.initEchart('linkChart');
-					this.isLoading = false;
-				}).catch(error => {
-					this.$message.error('出现了某些错误！请联系管理员');
-					console.log(error.response);
+					console.log(error);
 				})
 			},
 			initFullScreen() {
@@ -315,11 +300,6 @@
 			opacity: 0;
 		}
 
-		80% {
-			transform: scale(1.05);
-			opacity: 0.8;
-		}
-
 		100% {
 			transform: scale(1);
 			opacity: 1;
@@ -338,7 +318,7 @@
 		}
 
 		100% {
-			transform: scale(1.05);
+			transform: scale(1);
 			opacity: 0;
 		}
 	}

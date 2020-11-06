@@ -8,7 +8,8 @@ const store = new Vuex.Store({
 	state: {
 		host: 'localhost', // localhost www.kinmok.top
 		erp: '',
-		mode: 'C'
+		mode: 'C',
+		sysList: '-1',
 		//token: getToken()
 	},
 	mutations: {
@@ -17,13 +18,16 @@ const store = new Vuex.Store({
 		},
 		setErp(state, erp) {
 			state.erp = erp;
+		},
+		setSysList(state, sysList) {
+			state.sysList = sysList;
 		}
-	  /* resetToken (state) {
-	    state.token = ''
-	  },
-	  setToken (state, value) {
-	    state.token = value
-	  } */
+		/* resetToken (state) {
+		  state.token = ''
+		},
+		setToken (state, value) {
+		  state.token = value
+		} */
 	}
 })
 

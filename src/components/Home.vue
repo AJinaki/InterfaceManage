@@ -1,8 +1,6 @@
 <template>
 	<a-layout style="height: 100%;background-color: #F3F7FA;">
 		<a-layout-header style="background-color: #EE4B56;height: 60px;box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2)">
-			<!-- <img class="bannerLogo" src="../assets/logo.png" />
-			<img class="bannerLogo" src="../assets/banner.png" /> -->
 			<h1 class="bannerTitle">接口管理系统</h1>
 		</a-layout-header>
 		<a-layout>
@@ -23,55 +21,51 @@
 						<a-icon type="pic-center" class="navbar-icon" />系统管理
 						<a-icon type="right" :rotate=" showGroupA == true ? 90 : 0 " style="float: right;margin-right: 10px;margin-top: 3px;" />
 					</div>
-					<div v-if="showGroupA" class="navbar-group-item" :style="'height:' + showGroupA == true ? '500px' : '0'">
-						<router-link :to="navPath[3].path" tag="div">
-							<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="idcard" class="navbar-icon-group" />所有系统清单
-							</div>
-						</router-link>
-						<router-link :to="navPath[2].path" tag="div">
-							<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="user-add" class="navbar-icon-group" />管理系统
-							</div>
-						</router-link>
-						<router-link :to="navPath[4].path" tag="div">
-							<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="team" class="navbar-icon-group" />新增系统
-							</div>
-						</router-link>
-						<router-link :to="navPath[5].path" tag="div">
-							<div :class="navIndex === 6 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="idcard" class="navbar-icon-group" />所有服务清单
-							</div>
-						</router-link>
-						<router-link :to="navPath[6].path" tag="div">
-							<div :class="navIndex === 7 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="team" class="navbar-icon-group" />新增服务
-							</div>
-						</router-link>
-					</div>
-					<!-- <div class="navbar-item" @click="openGroupB">
-						<a-icon type="pic-center" class="navbar-icon" />折叠面板B
+					<transition>
+						<div v-if="showGroupA" class="navbar-group-item">
+							<router-link :to="navPath[3].path" tag="div">
+								<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
+									<a-icon type="idcard" class="navbar-icon-group" />所有系统清单
+								</div>
+							</router-link>
+							<router-link :to="navPath[2].path" tag="div">
+								<div v-if="this.role==='1' || this.role === '2'" :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
+									<a-icon type="user-add" class="navbar-icon-group" />管理系统
+								</div>
+							</router-link>
+							<router-link :to="navPath[4].path" tag="div">
+								<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
+									<a-icon type="team" class="navbar-icon-group" />新增系统
+								</div>
+							</router-link>
+							<router-link :to="navPath[5].path" tag="div">
+								<div :class="navIndex === 6 ? 'navbar-item-active' : ''" class="navbar-item">
+									<a-icon type="idcard" class="navbar-icon-group" />所有服务清单
+								</div>
+							</router-link>
+							<router-link :to="navPath[6].path" tag="div">
+								<div :class="navIndex === 7 ? 'navbar-item-active' : ''" class="navbar-item">
+									<a-icon type="team" class="navbar-icon-group" />新增服务
+								</div>
+							</router-link>
+						</div>
+					</transition>
+					<div v-if="role==='admin'" class="navbar-item" @click="openGroupB">
+						<a-icon type="pic-center" class="navbar-icon" />用户管理
 						<a-icon type="right" :rotate=0 style="float: right;margin-right: 10px;margin-top: 3px;" />
 					</div>
 					<div v-if="showGroupB" class="navbar-group-item">
-						<router-link v-if="advMode" :to="navPath[2].path" tag="div">
-							<div :class="navIndex === 3 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="idcard" class="navbar-icon" />所有服务
+						<router-link :to="navPath[7].path" tag="div">
+							<div :class="navIndex === 8 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="idcard" class="navbar-icon" />管理所有用户
 							</div>
 						</router-link>
-						<router-link v-if="superMode" :to="navPath[3].path" tag="div">
-							<div :class="navIndex === 4 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="team" class="navbar-icon" />管理管理员
+						<router-link :to="navPath[8].path" tag="div">
+							<div :class="navIndex === 9 ? 'navbar-item-active' : ''" class="navbar-item">
+								<a-icon type="team" class="navbar-icon" />管理所有权限
 							</div>
 						</router-link>
-						<router-link v-if="superMode" :to="navPath[4].path" tag="div">
-							<div :class="navIndex === 5 ? 'navbar-item-active' : ''" class="navbar-item">
-								<a-icon type="user-add" class="navbar-icon" />新增管理员
-							</div>
-						</router-link>
-					</div> -->
-
+					</div>
 					<div style="display: flex;justify-content: center;">
 						<div v-if="advMode && !superMode" class="navbar-item-changepass" @click="changePassword">
 							<a-icon type="lock" class="navbar-icon" style="margin-left: 0px;" />修改密码
@@ -126,7 +120,7 @@
 						path: 'Visualize'
 					},
 					{
-						path: 'ManageSystemList'
+						path: 'ManageSystemList' /* 3 */
 					},
 					{
 						path: 'AllSystemList'
@@ -135,10 +129,16 @@
 						path: 'SystemAdd'
 					},
 					{
-						path: 'AllServiceList'
+						path: 'AllElementList'
 					},
 					{
-						path: 'ServiceAdd'
+						path: 'ElementAdd'
+					},
+					{
+						path: 'ManageUser'/* 8 */
+					},
+					{
+						path: 'AMRole'
 					}
 				],
 				navIndex: 1,
@@ -164,6 +164,7 @@
 				},
 				showGroupA: false,
 				showGroupB: false,
+				role: String,
 			}
 		},
 		watch: {
@@ -290,17 +291,20 @@
 			});
 		},
 		created() {
-			console.log("mode: " + this.$store.state.mode);
-			//console.log("erp:" + this.$store.state.erp);
 			/*
 			 *权限控制高权限访问链接可见性
 			 */
-			if (this.$store.state.mode == "A") {
+			this.role = JSON.parse(sessionStorage.getItem("role")); //获取角色权限
+			console.log("role:"+this.role);
+			console.log("sysList222:"+this.$store.state.sysList);
+
+			//console.log("erp:" + this.$store.state.erp);
+			/* if (this.$store.state.mode == "A") {
 				this.advMode = true;
 				this.superMode = true;
 			} else if (this.$store.state.mode == "B") {
 				this.advMode = true;
-			}
+			} */
 		}
 	}
 </script>

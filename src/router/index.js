@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AdvLogin from '@/components/AdvLogin.vue'
 import Success from '@/components/Success.vue'
 import Home from '@/components/Home.vue'
-import GeneralView from '@/components/QuickSearch.vue'
-import AdvanceSearch from '@/components/AdvanceSearch.vue'
-import AddAddress from "@/components/AddAddress.vue"
-import ManageAdmin from "@/components/ManageAdmin.vue"
+import GeneralView from '@/components/GeneralView.vue'
 /* 五组功能路由 */
 import Visualize from '@/components/Visualize.vue'
+
+/* 一组功能路由 */
+import AllElementList from '@/components/EleManage/AllElementList.vue'
+import ElementAdd from '@/components/EleManage/ElementAdd.vue'
 
 /* 三组功能路由 */
 import LoginX from '@/components/Login.vue'
@@ -33,11 +33,6 @@ export default new Router({
 			component: LoginX
 		},
 		{
-			path: '/AdvLogin',
-			name: 'AdvLogin',
-			component: AdvLogin
-		},
-		{
 			path: '/Success',
 			name: 'Success',
 			component: Success
@@ -57,28 +52,6 @@ export default new Router({
 					path: '/Visualize',
 					name: 'Visualize',
 					component: Visualize
-				},
-				
-				{
-					path: '/AdvanceSearch',
-					name: 'AdvanceSearch',
-					component: AdvanceSearch
-				},
-				{
-					path: '/AddAddress',
-					name: 'AddAddress',
-					component: AddAddress,
-					meta: {
-						requiresAuth: true
-					}
-				},
-				{
-					path: '/ManageAdmin',
-					name: 'ManageAdmin',
-					component: ManageAdmin,
-					meta: {
-						requiresAuth: true
-					}
 				},
 				{
 					path: '/AddUser',
@@ -128,6 +101,16 @@ export default new Router({
 					path: '/AllSystemList',
 					name: 'AllSystemList',
 					component: AllSystemList
+				},
+				{
+					path: '/AllElementList',
+					name: 'AllElementList',
+					component: AllElementList
+				},
+				{
+					path: '/ElementAdd',
+					name: 'ElementAdd',
+					component: ElementAdd
 				}
 			]
 		}
