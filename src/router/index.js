@@ -1,29 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Success from '@/components/Success.vue'
-import Home from '@/components/Home.vue'
-import GeneralView from '@/components/GeneralView.vue'
-/* 五组功能路由 */
-import Visualize from '@/components/Visualize.vue'
-
-/* 一组功能路由 */
-import AllElementList from '@/components/EleManage/AllElementList.vue'
-import ElementAdd from '@/components/EleManage/ElementAdd.vue'
-
-/* 三组功能路由 */
-import LoginX from '@/components/Login.vue'
-import AddUser from '@/components/userManage/AddUser.vue'
-import ManageUser from '@/components/userManage/ManageUser.vue'
-import AMRole from '@/components/userManage/AMRole.vue'
-
-/* 二四组功能路由 */
-import ManageSystemList from '@/components/SysManage/ManageSystemList.vue'
-import SystemDetail from '@/components/SysManage/SystemDetail.vue'
-import SystemAdd from '@/components/SysManage/SystemAdd.vue'
-import SystemUpdate from '@/components/SysManage/SystemUpdate.vue'
-import AllSystemList from '@/components/SysManage/AllSystemList.vue'
 
 Vue.use(Router)
+
+const Success = ()=>import('@/components/Success.vue')
+const Home = ()=>import( '@/components/Home.vue')
+const GeneralView = ()=>import( '@/components/GeneralView.vue')
+/* 五组功能路由 */
+const Visualize = ()=>import( '@/components/Visualize.vue')
+
+/* 一组功能路由 */
+const AllElementList = ()=>import( '@/components/EleManage/AllElementList.vue')
+const ElementAdd = ()=>import( '@/components/EleManage/ElementAdd.vue')
+
+/* 三组功能路由 */
+const LoginX = ()=>import( '@/components/Login.vue')
+const AddUser = ()=>import( '@/components/userManage/AddUser.vue')
+const ManageUser = ()=>import( '@/components/userManage/ManageUser.vue')
+const AMRole = ()=>import( '@/components/userManage/AMRole.vue')
+
+/* 二四组功能路由 */
+const ManageSystemList = ()=>import( '@/components/SysManage/ManageSystemList.vue')
+const SystemDetail = ()=>import( '@/components/SysManage/SystemDetail.vue')
+const SystemAdd = ()=>import( '@/components/SysManage/SystemAdd.vue')
+const SystemUpdate = ()=>import( '@/components/SysManage/SystemUpdate.vue')
+const AllSystemList = ()=>import( '@/components/SysManage/AllSystemList.vue')
 
 export default new Router({
 	routes: [

@@ -30,8 +30,7 @@
 				</a-form>
 			</div>
 		</div>
-		<!-- <a class="advlink" href="/#/AdvLogin">管理员登录</a> -->
-		<a class="advlink" @click="LogIn()">管理员登录</a>
+		<!-- <a class="advlink" @click="LogIn()">管理员登录</a> -->
 	</div>
 </template>
 
@@ -102,12 +101,12 @@
 					}
 				});
 			},
-			LogIn(e) {
+			/* LogIn(e) {
 				sessionStorage.setItem('role','admin');//存入sessionSotrage
 				sessionStorage.setItem('sysList','1,2,3');//存入sessionSotrage
 				this.$store.commit("setSysList", '1,2,3');
 				this.$router.push('Home');
-			}
+			} */
 		}
 	}
 </script>
