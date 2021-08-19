@@ -30,7 +30,7 @@
 				</a-form>
 			</div>
 		</div>
-		<!-- <a class="advlink" @click="LogIn()">管理员登录</a> -->
+		<a class="advlink" @click="LogIn()">管理员登录</a>
 	</div>
 </template>
 
@@ -101,12 +101,12 @@
 					}
 				});
 			},
-			/* LogIn(e) {
+			LogIn(e) {
 				sessionStorage.setItem('role','admin');//存入sessionSotrage
 				sessionStorage.setItem('sysList','1,2,3');//存入sessionSotrage
 				this.$store.commit("setSysList", '1,2,3');
 				this.$router.push('Home');
-			} */
+			}
 		}
 	}
 </script>
@@ -119,15 +119,15 @@
 		padding-left: 50px;
 		padding-right: 50px;
 		padding-bottom: 50px;
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2)
 	}
 
 	.loghead {
 		background-color: #EE4B56;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
+		border-top-left-radius: 25px;
+		border-top-right-radius: 25px;
 		padding-top: 30px;
 		padding-bottom: 30px;
 		padding-left: 70px;

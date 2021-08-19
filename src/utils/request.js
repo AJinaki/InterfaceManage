@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://112.125.89.64:8090/api',//生产使用http://*:8090/api 开发使用localhost "http://www.kinmok.top:8090/api"
+  baseURL: 'http://58.87.86.217:8090/api',//生产使用http://*:8090/api 开发使用localhost "http://www.kinmok.top:8090/api";"112.125.89.64"
   // withCredentials: true, // 允许服务器请求头携带Cookies,但是会出现区域拒绝问题
   timeout: 6000 // 请求超时时间,单位毫秒
 })
